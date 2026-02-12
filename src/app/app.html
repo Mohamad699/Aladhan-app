@@ -13,19 +13,31 @@
   <div *ngIf="loading" class="text-center mt-3">جاري التحميل...</div>
 
   <div *ngIf="error" class="alert alert-danger mt-3 text-center">{{ error }}</div>
+  
+<div *ngIf="data && data.timings" class="mt-4">
 
-  <div *ngIf="data?.timings" class="mt-4">
-        <p style=" text-align: center;"><strong>المدينة:</strong> {{ data.city }}</p>
-    <p style=" text-align: center;"><strong>الدولة:</strong> {{ data.country }}</p>
-    <table class="table table-bordered text-center">
+  <p class="text-center">
+    <strong>المدينة:</strong> {{ data.city }}
+  </p>
 
-      <tr><th>الصلاة</th><th>الوقت</th></tr>
+  <p class="text-center">
+    <strong>الدولة:</strong> {{ data.country }}
+  </p>
+
+  <table class="table table-bordered table-striped text-center mt-3" dir="rtl">
+    <thead class="table-dark">
+      <tr>
+        <th>الصلاة</th>
+        <th>الوقت</th>
+      </tr>
+    </thead>
+    <tbody>
       <tr><td>الفجر</td><td>{{ data.timings.Fajr }}</td></tr>
       <tr><td>الظهر</td><td>{{ data.timings.Dhuhr }}</td></tr>
       <tr><td>العصر</td><td>{{ data.timings.Asr }}</td></tr>
       <tr><td>المغرب</td><td>{{ data.timings.Maghrib }}</td></tr>
       <tr><td>العشاء</td><td>{{ data.timings.Isha }}</td></tr>
-    </table>
-  </div>
-</div>
+    </tbody>
+  </table>
 
+</div>
